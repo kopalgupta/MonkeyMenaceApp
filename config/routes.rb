@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get "/guidelines" => "home#guidelines", as: "guidelines"
   get "/location_search" => "home#location_search", as: "location_search"
 
-  get "/sign_in" => 'users#sign_in_get', as: "sign_up_get_user"
-  get "/sign_up" => 'users#sign_up_get', as: "sign_in_get_user"
+  get "/sign_in" => 'users#sign_in_get', as: "sign_in_get_user"
+  get "/sign_up" => 'users#sign_up_get', as: "sign_up_get_user"
   post "/sign_up" => "users#sign_up", as: "sign_up_user"
   post "/sign_in" => "users#sign_in", as: "sign_in_user"
   get "/dashboard" => "user_dashboard#index", as: "user_dashboard"
