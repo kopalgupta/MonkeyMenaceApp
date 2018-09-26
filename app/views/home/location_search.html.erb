@@ -1,0 +1,27 @@
+<h1>Search number of attacks by location</h1>
+
+<%= form_tag '/location_search', method: :get, id: "search-form" do %>
+Location: <%= text_area_tag :search, params[:search], placeholder: "Enter location" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<% if @complaints.present? %>
+
+	<% count_complaints = 0 %>
+	<% @complaints.each do |complaint| %>
+		<% count_complaints = count_complaints + 1 %>
+	<% end %>
+
+	<h4>This has </h4><%= count_complaints %><h4> complaints yet</h4>
+
+<% else %>
+	
+	<% if @location.present? %>
+		<p>There are no complaints reported from this location yet. </p>
+	<% else %>
+		<p>Please enter a location in search box. </p>
+	<% end %>
+
+<% end %>
+
+

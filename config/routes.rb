@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # get 'official/sign_in'
 
   root 'home#index'
+  get "/guidelines" => "home#guidelines", as: "guidelines"
+  get "/location_search" => "home#location_search", as: "location_search"
 
   get "/sign_in" => 'users#sign_in_get', as: "sign_up_get_user"
   get "/sign_up" => 'users#sign_up_get', as: "sign_in_get_user"
