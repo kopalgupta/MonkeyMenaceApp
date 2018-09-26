@@ -1,0 +1,15 @@
+<h1>User#sign_up</h1>
+
+<%= form_tag '/sign_up' do %>
+
+ Name: <%= text_field_tag :name %><br>
+ Email: <%= text_field_tag :email %><br>
+ Password: <%= password_field_tag :password %><br>
+ phone: <%= number_field_tag :phone %><br>
+ Address: <%= text_field_tag :address %><br>
+
+ <%= submit_tag "Sign Up" %>
+
+  <%= link_to 'Existing User? Signin', '/sign_in' %>
+
+ <% end %>

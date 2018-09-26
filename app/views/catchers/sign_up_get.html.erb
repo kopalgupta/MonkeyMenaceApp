@@ -1,0 +1,15 @@
+<h1>Catcher#sign_up</h1>
+
+<%= form_tag '/catchers/sign_up' do %>
+
+ Name: <%= text_field_tag :name %><br>
+ Mobile Number: <%= number_field_tag :phone %><br>
+ Password: <%= password_field_tag :password %><br>
+ Location: <%= text_field_tag :location %><br>
+ Price per monkey: <%= number_field_tag :price %><br>
+
+ <%= submit_tag "Sign Up" %>
+
+  <%= link_to 'Already Registered? Signin', '/catchers/sign_in' %>
+
+ <% end %>

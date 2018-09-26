@@ -1,0 +1,11 @@
+<h1>Catcher#sign_in</h1>
+
+<%= form_tag '/catchers/sign_in' do %>
+
+Mobile Number: <%= number_field_tag :phone %><br>
+Password: <%= password_field_tag :password %><br>
+<%= submit_tag "Signin" %>
+
+<%= link_to 'New here? Register Now!', '/catchers/sign_up' %>
+
+<% end %>
