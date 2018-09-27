@@ -1,3 +1,36 @@
 <h1>Official Dashboard</h1>
 
+<br><%= link_to "View All Complaints", url_for(controller: :official_dashboard, action: :view_all), method: :get %>
+
+<h3>Active Complaints</h3>
+<ul>
+<% @active_complaints.each do |ac| %>
+
+	<li><%= ac.id %><%= ac.description %>
+		<% if ac.status == 1 %>
+			status = In progress
+		<% elsif ac.status == 2 %>
+			status = Completed by the department
+		<% end %>
+
+		<%= link_to "view complaint", url_for(controller: :official_dashboard, action: :view_complaint, complaint_id: ac.id), method: :get %>
+		
+	</li>
+
+<% end %>
+</ul>
+
+<h3>Archived Complaints</h3>
+<p>These complaints have been marked resolved by the users</p>
+<ul>
+<% @archived_complaints.each do |ac| %>
+
+	<li><%= ac.id %><%= ac.description %> Resolved
+	<%= link_to "view complaint", url_for(controller: :official_dashboard, action: :view_complaint, complaint_id: ac.id), method: :get %>
+		
+	</li>
+
+<% end %>
+</ul>
+
 <%= link_to "Logout", logout_official_path %>

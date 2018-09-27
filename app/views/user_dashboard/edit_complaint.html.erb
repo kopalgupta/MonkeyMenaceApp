@@ -1,0 +1,9 @@
+<%= form_tag '/update_complaint' do %>
+	<%= hidden_field_tag :edit_id, @complaint.id %>
+Description	<%= text_area_tag :new_description, @complaint.description %>
+Number of Monkeys Spotted <%= number_field_tag :new_monkeys_spotted, @complaint.monkeys_spotted %>
+Location <%= text_field_tag :new_location, @complaint.location %>
+	<%= submit_tag "Save Changes" %>
+<% end %>
+
+<%= link_to 'Return to my Dashboard', user_dashboard_path %>

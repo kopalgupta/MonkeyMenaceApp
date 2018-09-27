@@ -1,0 +1,10 @@
+<h1>Submit Complaint form</h1>
+
+<%= form_tag '/create_complaint' do %>
+	Description: <%= text_area_tag :description %>
+	Number of monkeys spotted: <%= number_field_tag :monkeys_spotted %>
+	Location: <%= text_field_tag :location %>
+	<%= submit_tag "Create Complaint" %>
+<% end %>
+
+<%= link_to "Return to Dashboard", user_dashboard_path %>

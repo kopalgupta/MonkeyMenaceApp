@@ -1,0 +1,28 @@
+<h2>Description: <%= @complaint.description %></h2>
+<p>Number of monkeys spotted: <%= @complaint.monkeys_spotted %></p>
+<p>Location: <%= @complaint.location %></p>
+<p>
+<% if @complaint.status == 0 %>
+	Status of complaint: Unread
+<% elsif @complaint.status == 1 %>
+	Status of complaint: In Progress
+<% else %>
+	Status of complaint: Completed by Department
+<% end %>
+</p>
+<p>
+<% if @complaint.resolved == false %>
+	Mark this complaint as resolved? <%= link_to "Yes, it has been resolved", url_for(controller: :user_dashboard, action: :complaint_resolved, complaint_id: @complaint.id), method: :post %>
+<% else %>
+	This complaint has been marked Resolved.
+<% end %>
+</p>
+
+
+<% if @complaint.status == 0 %>
+
+	<%= link_to "Edit", url_for(controller: :user_dashboard, action: :edit_complaint, complaint_id: @complaint.id), method: :get %>
+	<%= link_to "Delete", url_for(controller: :user_dashboard, action: :delete_complaint, complaint_id: @complaint.id), method: :post %>
+<% end %>
+
+<%= link_to "Return to Dashboard", user_dashboard_path %>

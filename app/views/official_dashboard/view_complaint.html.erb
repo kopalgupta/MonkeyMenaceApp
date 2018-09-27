@@ -1,0 +1,36 @@
+<h2>Description: <%= @complaint.description %></h2>
+<p>Name of the complainant: <%= @user.name %></p>
+<p>email id of the complainant: <%= @user.email %></p>
+<p>Phone number of the complainant: <%= @user.phone %></p>
+<p>Number of monkeys spotted: <%= @complaint.monkeys_spotted %></p>
+<p>Location: <%= @complaint.location %></p>
+<p>
+<% if @complaint.status == 1 %>
+	Status of complaint: In Progress
+	<%= link_to "Mark as Completed", url_for(controller: :official_dashboard, action: :mark_complaint_as_completed, complaint_id: @complaint.id), method: :post %>
+	<%= link_to "Find Monkey Catcher", url_for(controller: :official_dashboard, action: :view_all_catchers, complaint_id: @complaint.id), method: :get %>
+<% elsif @complaint.status == 2 %>
+	Status of complaint: Completed
+<% end %>
+</p>
+
+<p>
+<% if @complaint.resolved == false && @complaint.status == 2%>
+	Complaint has not been marked as resolved by the complainant
+	<%= link_to "Notify complainant", official_dashboard_path %>
+<% elsif @complaint.resolved == true && @complaint.status == 2 %>
+	Complaint has been successfully marked as resolved by the complainant
+<% end %>
+</p>
+
+
+<h3>Contracts for this complaint</h3>
+<ul>
+	<% @contracts.each do |contract| %>
+		<li>
+			Description: <%= contract.description %>
+		</li>
+	<% end %>
+</ul>
+
+<%= link_to "Return to Dashboard", official_dashboard_path %>

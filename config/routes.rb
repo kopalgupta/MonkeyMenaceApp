@@ -16,12 +16,26 @@ Rails.application.routes.draw do
   post "/sign_in" => "users#sign_in", as: "sign_in_user"
   get "/dashboard" => "user_dashboard#index", as: "user_dashboard"
   get "/logout" => "users#logout", as: "logout_user"
+  get "/new_complaint" => "user_dashboard#new_complaint", as: "new_complaint"
+  post "/create_complaint" => "user_dashboard#create_complaint", as: "create_complaint"
+  get "/edit_complaint" => "user_dashboard#edit_complaint"
+  post "/update_complaint" => "user_dashboard#update_complaint"
+  get "/view_complaint" => "user_dashboard#view_complaint"
+  post "/delete_complaint" => "user_dashboard#delete_complaint"
+  post "/complaint_resolved" => "user_dashboard#complaint_resolved"
 
   get "/officials/sign_up" => "officials#sign_up", as: "sign_up_official"
   get "/officials/sign_in" => "officials#sign_in_get", as: "sign_in_get_official"
   post "/officials/sign_in" => "officials#sign_in", as: "sign_in_official"
   get "official/dashboard" => "official_dashboard#index", as: "official_dashboard"
   get "/officials/logout" => "officials#logout", as: "logout_official"
+  get "official/view_complaint" => "official_dashboard#view_complaint"
+  post "official/mark_complaint_as_completed" => "official_dashboard#mark_complaint_as_completed"
+  get "official/view_all_catchers" => "official_dashboard#view_all_catchers", as: "view_all_catchers"
+  get "official/create_contract" => "official_dashboard#create_contract_get"
+  post "official/official/create_contract" => "official_dashboard#create_contract"
+  get "official/view_all" => "official_dashboard#view_all"
+  post "official/add_complaint" => "official_dashboard#add_complaint"
 
   get "/catchers/sign_up" => "catchers#sign_up_get", as: "sign_up_get_catcher"
   get "/catchers/sign_in" => "catchers#sign_in_get", as: "sign_in_get_catcher"
@@ -29,6 +43,8 @@ Rails.application.routes.draw do
   post "/catchers/sign_in" => "catchers#sign_in", as: "sign_in_catcher"
   get "catcher/dashboard" => "catcher_dashboard#index", as: "catcher_dashboard"
   get "/catchers/logout" => "catchers#logout", as: "logout_catcher"
+
+  
   # get 'user/sign_up'
 
   # get 'user/sign_in'

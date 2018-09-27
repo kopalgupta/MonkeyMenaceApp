@@ -1,0 +1,13 @@
+<h1>List of Monkey Catchers in Pune</h1>
+
+<ul>
+	<% @catchers.each do |catcher| %>
+		<li>
+			Name: <%= catcher.name %>
+			Phone Number: <%= catcher.phone %>
+			Location: <%= catcher.location %>
+			Price per monkey: <%= catcher.price %>
+			<%= link_to "Create contract", url_for(controller: :official_dashboard, action: :create_contract_get, complaint_id: @complaint_id, catcher_id: catcher.id), method: :get %>
+		</li>
+	<% end %>
+</ul>

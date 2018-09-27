@@ -1,0 +1,12 @@
+<h1>Contract form</h1>
+
+<%= form_tag 'official/create_contract' do %>
+	Description: <%= text_area_tag :description %>
+	Amount offered per monkey: <%= number_field_tag :amount %>
+	Location: <%= text_field_tag :location, @location %>
+	<%= hidden_field_tag :complaint_id, @complaint_id %>
+	<%= hidden_field_tag :catcher_id, @catcher_id %>
+	<%= submit_tag "Create Contract" %>
+<% end %>
+
+<%= link_to "Return to Dashboard", official_dashboard_path %>

@@ -1,0 +1,9 @@
+<h1>All Unread Complaints</h1>
+
+<ul>
+	<% @complaints.each do |complaint| %>
+		Description: <%= complaint.description %>
+		Location: <%= complaint.location %>
+		<%= link_to "Add to my dashboard", url_for(controller: :official_dashboard, action: :add_complaint, complaint_id: complaint.id), method: :post %>
+	<% end %>
+</ul>

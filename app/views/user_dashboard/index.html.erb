@@ -1,3 +1,46 @@
 <h1>User Dashboard</h1>
 
+<br><%= link_to "Safety Guidelines and Measures", guidelines_path %>
+
+<br><%= link_to "Search complaints by location", location_search_path %>
+
+<br><%= link_to "Create new Complaint", new_complaint_path %>
+
+<h3>Active Complaints</h3>
+<p>Only unread complaints can be edited or deleted</p>
+<ul>
+<% @active_complaints.each do |ac| %>
+
+	<li><%= ac.id %><%= ac.description %>
+		<% if ac.status == 0 %>
+			status = unread
+			<%= link_to "Edit", url_for(controller: :user_dashboard, action: :edit_complaint, complaint_id: ac.id), method: :get %>
+			<%= link_to "Delete", url_for(controller: :user_dashboard, action: :delete_complaint, complaint_id: ac.id), method: :post %>
+		<% elsif ac.status == 1 %>
+			status = In Progress
+		<% else %>
+			status = Completed by the department
+		<% end %>
+
+		<%= link_to "view complaint", url_for(controller: :user_dashboard, action: :view_complaint, complaint_id: ac.id), method: :get %>
+		
+	</li>
+
+<% end %>
+</ul>
+
+<h3>Archived Complaints</h3>
+<p>These complaints have been marked as rssolved</p>
+<ul>
+<% @archived_complaints.each do |ac| %>
+
+	<li><%= ac.id %><%= ac.description %> Resolved
+	<%= link_to "view complaint", url_for(controller: :user_dashboard, action: :view_complaint, complaint_id: ac.id), method: :get %>
+		
+	</li>
+
+<% end %>
+</ul>
+
+
 <%= link_to "Logout", logout_user_path %>
