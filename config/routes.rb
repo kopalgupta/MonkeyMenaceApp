@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   post "/catchers/sign_in" => "catchers#sign_in", as: "sign_in_catcher"
   get "catcher/dashboard" => "catcher_dashboard#index", as: "catcher_dashboard"
   get "/catchers/logout" => "catchers#logout", as: "logout_catcher"
+  get "catcher/view_contract" => "catcher_dashboard#view_contract"
 
   
   # get 'user/sign_up'

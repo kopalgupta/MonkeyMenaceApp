@@ -1,0 +1,13 @@
+<h2>Description: <%= @contract.description %></h2>
+<p>Amount per monkey caught: <%= @contract.amount %></p>
+<p>Name of the Official: <%= @official.name %></p>
+<p>Phone number of the official: <%= @official.phone %></p>
+<p>Location: <%= @complaint.location %></p>
+<p>Monkeys reported at location: <%= @complaint.monkeys_spotted %></p>
+<% if @contract.status == 0 %>
+	Status: Pending
+<% else %>
+	Status: Completed
+<% end %>
+
+<%= link_to "Return to Dashboard", catcher_dashboard_path %>
