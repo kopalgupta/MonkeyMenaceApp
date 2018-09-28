@@ -52,6 +52,21 @@ class OfficialDashboardController < ApplicationController
 		return redirect_to official_dashboard_path
 	end
 
+	def view_contract
+		contract_id = params[:contract_id]
+		@contract = Contract.where(:id => contract_id).first
+		catcher_id = @contract.catcher_id
+		@catcher = Catcher.where(:id => catcher_id).first
+	end
+
+	def mark_contract_as_completed
+		contract_id = params[:contract_id]
+		@contract = Contract.where(:id => contract_id).first
+		@contract.status = 1
+		@contract.save
+		redirect_to official_dashboard_path
+	end
+
 
 	
 end

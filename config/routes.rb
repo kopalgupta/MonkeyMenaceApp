@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   post "official/official/create_contract" => "official_dashboard#create_contract"
   get "official/view_all" => "official_dashboard#view_all"
   post "official/add_complaint" => "official_dashboard#add_complaint"
+  get "official/view_contract" => "official_dashboard#view_contract"
+  post "official/mark_contract_as_completed" => "official_dashboard#mark_contract_as_completed"
 
   get "/catchers/sign_up" => "catchers#sign_up_get", as: "sign_up_get_catcher"
   get "/catchers/sign_in" => "catchers#sign_in_get", as: "sign_in_get_catcher"

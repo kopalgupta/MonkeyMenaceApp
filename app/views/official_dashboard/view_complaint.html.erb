@@ -29,6 +29,12 @@
 	<% @contracts.each do |contract| %>
 		<li>
 			Description: <%= contract.description %>
+			<% if contract.status == 0 %>
+				Status = pending
+			<% else %>
+				Status = completed
+			<% end %> 
+			<%= link_to "View this contract", url_for(controller: :official_dashboard, action: :view_contract, contract_id: contract.id), method: :get %>
 		</li>
 	<% end %>
 </ul>

@@ -1,0 +1,9 @@
+<h2>Description: <%= @contract.description %></h2>
+<p>Amount per monkey caught: <%= @contract.amount %></p>
+<p>Name of the catcher: <%= @catcher.name %></p>
+<p>Phone number of the catcher: <%= @catcher.phone %></p>
+<p>Location of the catcher: <%= @catcher.location %></p>
+<% if @contract.status == 0 %>
+	Status: Pending
+	<%= link_to "Mark as completed", url_for(controller: :official_dashboard, action: :mark_contract_as_completed, contract_id: @contract.id), method: :post %>
+<% end %>
