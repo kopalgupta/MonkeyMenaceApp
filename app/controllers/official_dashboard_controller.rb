@@ -3,6 +3,8 @@ class OfficialDashboardController < ApplicationController
 	def index
 		@active_complaints = current_official.complaints.where(resolved: false)
 		@archived_complaints = current_official.complaints.where(resolved: true)
+		@pending_contracts = current_official.contracts.where(status: 0)
+		@completed_contracts = current_official.contracts.where(status: 1)
 	end
 
 	def view_all
